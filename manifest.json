@@ -1,0 +1,45 @@
+{
+  "name": "Party Zone · Salón de Eventos en La Paz",
+  "short_name": "Party Zone",
+  "description": "Salón de eventos infantiles y Baby Shower en Miraflores, La Paz (Av. Busch #1159). Paquetes y más de 20 temáticas personalizadas.",
+  "lang": "es-BO",
+  "dir": "ltr",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#11101d",
+  "theme_color": "#ff5fa2",
+  "categories": ["entertainment", "lifestyle", "shopping"],
+  "icons": [
+    {
+      "src": "img/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "img/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "El Salón y Ambientes",
+      "short_name": "El Salón",
+      "url": "./index.html#ambientes"
+    },
+    {
+      "name": "Paquetes y Temáticas",
+      "short_name": "Paquetes",
+      "url": "./index.html#catalogo"
+    },
+    {
+      "name": "Cotizador y Reserva",
+      "short_name": "Cotizar",
+      "url": "./index.html#cotizador"
+    }
+  ]
+}

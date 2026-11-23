@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="oscuro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Party Zone | Salón de Fiestas Infantiles y Baby Shower en La Paz</title>
+  <meta name="description" content="Salón de eventos infantiles y Baby Shower en Miraflores, La Paz (Av. Busch #1159). Paquetes Básico, Temático y Súper Temático con decoración, luces y juegos.">
+  <meta name="theme-color" content="#ff6b8b">
+  <meta property="og:title" content="Party Zone · Salón de Eventos en Miraflores, La Paz">
+  <meta property="og:description" content="¡Magia y diversión! Conoce nuestros ambientes, paquetes y más de 20 temáticas exclusivas en La Paz.">
+  <meta property="og:image" content="img/nuestro ambiente 1.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="img/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="img/logo.png">
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="pz-site" data-tema="oscuro">
+  <a class="pz-skip" href="#contenido">Saltar al contenido</a>
+
+  <header class="pz-header" id="inicio">
+    <div class="pz-header__inner">
+      <a class="pz-brand" href="#inicio-vista" data-vista-target="inicio-vista" aria-label="Party Zone, inicio">
+        <img class="pz-brand__logo" src="img/logo.png" alt="Logo Party Zone" width="46" height="46" data-img-base="img/logo">
+        <span class="pz-brand__text">
+          <strong class="pz-brand__name">Party Zone</strong>
+          <small class="pz-brand__tag">Salón de Eventos · Miraflores</small>
+        </span>
+      </a>
+
+      <nav class="pz-nav" id="navPrincipal" aria-label="Navegación principal">
+        <a class="pz-nav__link active" href="#inicio-vista" data-vista-target="inicio-vista">Inicio</a>
+        <a class="pz-nav__link" href="#ambientes" data-vista-target="ambientes">El Salón</a>
+        <a class="pz-nav__link" href="#catalogo" data-vista-target="catalogo">Paquetes</a>
+        <a class="pz-nav__link" href="#disponibilidad" data-vista-target="disponibilidad">Turnos</a>
+        <a class="pz-nav__link" href="#cotizador" data-vista-target="cotizador">Cotizador</a>
+        <a class="pz-nav__link" href="#panel-cuenta" data-vista-target="panel-cuenta" id="navLinkPanel" hidden>Panel</a>
+        <a class="pz-nav__link" href="#contacto" data-vista-target="contacto">Ubicación</a>
+      </nav>
+
+      <div class="pz-nav-actions">
+        <span id="estadoRed" class="pz-net-pill" aria-live="polite">En Línea</span>
+        <button class="pz-btn pz-btn--ghost pz-btn--small" id="btnCuentaHeader" type="button" aria-label="Iniciar sesión o ver mi cuenta">
+          <span aria-hidden="true">👤</span>
+          <span id="textoCuentaHeader">Ingresar</span>
+        </button>
+        <button class="pz-btn pz-btn--ghost pz-btn--small pz-view-toggle" id="btnVistaMovil" type="button" aria-pressed="false" title="Alternar vista Móvil / Laptop">
+          <span class="view-icon" aria-hidden="true">📱</span>
+          <span class="view-label">Móvil</span>
+        </button>
+        <button class="pz-btn pz-btn--ghost pz-btn--small pz-btn--theme" id="btnTema" type="button" aria-label="Cambiar a modo claro" aria-pressed="true">
+          <span class="pz-btn__icon" aria-hidden="true">☾</span>
+          <span class="pz-btn__text">Modo claro</span>
+        </button>
+        <button class="pz-btn pz-btn--primary pz-btn--small pz-btn--install" id="btnInstalarPWA" type="button" hidden>
+          <span aria-hidden="true">↓</span> Instalar
+        </button>
+        <button class="pz-menu-btn" id="btnMenu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMobileDrop">
+          <span class="pz-menu-btn__line"></span>
+          <span class="pz-menu-btn__line"></span>
+          <span class="pz-menu-btn__line"></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="pz-mobile-drop" id="navMobileDrop" aria-label="Menú desplegable móvil" hidden>
+      <a href="#inicio-vista" data-vista-target="inicio-vista">🏰 Inicio</a>
+      <a href="#ambientes" data-vista-target="ambientes">✨ El Salón y Ambientes</a>
+      <a href="#catalogo" data-vista-target="catalogo">🎈 Paquetes y Temáticas</a>
+      <a href="#disponibilidad" data-vista-target="disponibilidad">📅 Turnos Disponibles</a>
+      <a href="#cotizador" data-vista-target="cotizador">🧾 Cotizador</a>
+      <a href="#panel-cuenta" data-vista-target="panel-cuenta" id="mobileLinkPanel">👤 Mi Cuenta / Panel Admin</a>
+      <a href="#preguntas" data-vista-target="preguntas">❓ Preguntas Frecuentes</a>
+      <a href="#contacto" data-vista-target="contacto">📍 Ubicación y Contacto</a>
+    </nav>
+  </header>
+
+  <div class="pz-app-shell" id="appRoot">
+    <!-- DOCK INFERIOR (VERTICAL) / LATERAL (HORIZONTAL) EN VISTA CELULAR -->
+    <nav class="pz-dock" aria-label="Navegación rápida móvil">
+      <a class="pz-dock__link is-active" href="#inicio-vista" data-vista-target="inicio-vista">
+        <span aria-hidden="true">🏰</span>
+        <small>Inicio</small>
+      </a>
+      <a class="pz-dock__link" href="#ambientes" data-vista-target="ambientes">
+        <span aria-hidden="true">✨</span>
+        <small>Salón</small>
+      </a>
+      <a class="pz-dock__link" href="#catalogo" data-vista-target="catalogo">
+        <span aria-hidden="true">🎈</span>
+        <small>Paquetes</small>
+      </a>
+      <a class="pz-dock__link" href="#cotizador" data-vista-target="cotizador">
+        <span aria-hidden="true">🧾</span>
+        <small>Cotizar</small>
+      </a>
+      <a class="pz-dock__link" href="#panel-cuenta" data-vista-target="panel-cuenta">
+        <span aria-hidden="true">👤</span>
+        <small>Cuenta</small>
+      </a>
+    </nav>
+
+    <main class="pz-main" id="contenido" data-hidratado="false">
+      <!-- VISTA 1: INICIO / HERO -->
+      <section class="pz-hero vista-seccion is-vista-activa" id="inicio-vista" data-seccion="inicio-vista" aria-labelledby="tituloHero">
+        <div class="pz-hero__inner">
+          <div class="pz-hero__copy">
+            <p class="pz-eyebrow"><span aria-hidden="true">✨</span> 6 años creando magia en Miraflores</p>
+            <h1 class="pz-hero__title" id="tituloHero">
+              ¡Magia y Diversión! La mejor <span class="pz-hero__highlight">Party Zone</span> para celebrar.
+            </h1>
+            <p class="pz-hero__lead">
+              Un espacio mágico en el corazón de Miraflores, La Paz, diseñado para cumpleaños infantiles y Baby Showers inolvidables. Tú eliges la temática; nosotros montamos cada detalle.
+            </p>
+            <div class="pz-hero__actions">
+              <a class="pz-btn pz-btn--primary pz-btn--large" href="#cotizador" data-vista-target="cotizador">Armar mi evento <span aria-hidden="true">→</span></a>
+              <a class="pz-btn pz-btn--ghost pz-btn--large" href="#catalogo" data-vista-target="catalogo">Ver paquetes</a>
+            </div>
+            <ul class="pz-hero__trust">
+              <li><span aria-hidden="true">✓</span> Capacidad Piñata: 40 niños y 80 adultos · Baby Shower: 80 a 90 adultos</li>
+              <li><span aria-hidden="true">✓</span> Turno Mañana (09:00 a 14:00) y Turno Tarde (15:00 a 20:00)</li>
+              <li><span aria-hidden="true">✓</span> Visitas y reservas: viernes de 4:30 a 7:00 PM (previa coordinación)</li>
+            </ul>
+            <div class="pz-hero__proof">
+              <div class="pz-avatars" aria-hidden="true">
+                <span class="pz-avatars__item">PZ</span>
+                <span class="pz-avatars__item">🎂</span>
+                <span class="pz-avatars__item">🎈</span>
+                <span class="pz-avatars__item">+</span>
+              </div>
+              <p><strong>+27 temáticas</strong> exclusivas · <strong>Av. Busch #1159</strong>, Miraflores</p>
+            </div>
+          </div>
+
+          <div class="pz-hero__media">
+            <span class="pz-badge pz-badge--wow" aria-hidden="true">¡WOW!</span>
+            <img class="pz-hero__img" src="img/nuestro ambiente 1.png" data-img-base="img/nuestro ambiente 1" alt="Salón Party Zone decorado en Miraflores, La Paz" width="900" height="1100" fetchpriority="high">
+            <div class="pz-hero__card">
+              <div>
+                <p class="pz-hero__card-title">Nuestro Ambiente &amp; Temáticas</p>
+                <p class="pz-hero__card-text">Explora nuestros 5 espacios y más de 20 decoraciones reales.</p>
+              </div>
+              <a class="pz-hero__card-link" href="#ambientes" data-vista-target="ambientes" aria-label="Explorar ambientes del salón">→</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="pz-strip" aria-label="Especificaciones del salón">
+          <div class="pz-strip__item"><strong>40 niños + 80 adultos</strong><span>Capacidad piñatas</span></div>
+          <div class="pz-strip__item"><strong>80 a 90 adultos</strong><span>Capacidad Baby Shower</span></div>
+          <div class="pz-strip__item"><strong>09:00–14:00 / 15:00–20:00</strong><span>Turnos Mañana y Tarde</span></div>
+          <div class="pz-strip__item"><strong>6 Años</strong><span>Creando recuerdos</span></div>
+        </div>
+      </section>
+
+      <!-- VISTA 2: NUESTROS AMBIENTES -->
+      <section class="pz-section pz-section--alt vista-seccion" id="ambientes" data-seccion="ambientes" aria-labelledby="tituloAmbientes">
+        <div class="pz-section__head">
+          <div>
+            <p class="pz-eyebrow"><span aria-hidden="true">🏰</span> Un espacio de ensueño</p>
+            <h2 class="pz-section__title" id="tituloAmbientes">Conoce Nuestros Ambientes en Miraflores</h2>
+            <p class="pz-section__lead">Jardín con césped sintético, área de juegos segura, iluminación inteligente, cocina equipada, 2 baños con cambiador de pañal y mesa principal.</p>
+          </div>
+          <span class="pz-section__count">5 vistas reales del salón</span>
+        </div>
+
+        <div class="pz-ambientes-grid" id="gridAmbientes">
+          <article class="pz-ambiente-card" data-zoom-src="img/nuestro ambiente 1" data-zoom-titulo="Área de Juegos y Jardín Sintético">
+            <img src="img/nuestro ambiente 1.png" data-img-base="img/nuestro ambiente 1" alt="Área de juegos en jardín con césped sintético" loading="lazy">
+            <div class="pz-ambiente-card__cap">
+              <strong>01 · Área de Juegos y Jardín</strong>
+              <span>Césped sintético, resbalines y juegos seguros para niños.</span>
+            </div>
+          </article>
+          <article class="pz-ambiente-card" data-zoom-src="img/nuestro ambiente 2" data-zoom-titulo="Salón Principal con Luces y Mesas">
+            <img src="img/nuestro ambiente 2.jpg" data-img-base="img/nuestro ambiente 2" alt="Salón principal iluminado con mesas y sillas vestidas" loading="lazy">
+            <div class="pz-ambiente-card__cap">
+              <strong>02 · Salón Principal Iluminado</strong>
+              <span>Juego de luces todo el evento, parlante ambiental y línea blanca.</span>
+            </div>
+          </article>
+          <article class="pz-ambiente-card" data-zoom-src="img/nuestro ambiente 3" data-zoom-titulo="Mesa Principal y Fondo Neón">
+            <img src="img/nuestro ambiente 3.png" data-img-base="img/nuestro ambiente 3" alt="Mesa principal con letrero neón Party Zone y cortina de luces" loading="lazy">
+            <div class="pz-ambiente-card__cap">
+              <strong>03 · Escenario de Mesa Principal</strong>
+              <span>Cortina de luces, corralito, porta canastero y cajón de regalos.</span>
+            </div>
+          </article>
+          <article class="pz-ambiente-card" data-zoom-src="img/nuestro ambiente 4" data-zoom-titulo="Ingreso y Fachada Edificio Jimena Natividad">
+            <img src="img/nuestro ambiente 4.jpg" data-img-base="img/nuestro ambiente 4" alt="Entrada decorada de Party Zone en Av. Busch 1159" loading="lazy">
+            <div class="pz-ambiente-card__cap">
+              <strong>04 · Fachada e Ingreso Principal</strong>
+              <span>Preparado para arco de globos y pizarra de bienvenida.</span>
+            </div>
+          </article>
+          <article class="pz-ambiente-card" data-zoom-src="img/nuestro ambiente 5" data-zoom-titulo="Zona Infantil y Comodidad Familiar">
+            <img src="img/nuestro ambiente 5.png" data-img-base="img/nuestro ambiente 5" alt="Espacio acondicionado para niños y adultos" loading="lazy">
+            <div class="pz-ambiente-card__cap">
+              <strong>05 · Comodidad Total</strong>
+              <span>Cocina, 2 baños, cambiador de pañal y limpieza final incluida.</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- VISTA 3: CATÁLOGO UNIFICADO -->
+      <section class="pz-section vista-seccion" id="catalogo" data-seccion="catalogo" aria-labelledby="tituloCatalogo">
+        <div class="pz-section__head">
+          <div>
+            <p class="pz-eyebrow"><span aria-hidden="true">◈</span> Paquetes &amp; Temáticas 2026</p>
+            <h2 class="pz-section__title" id="tituloCatalogo">1° Elige tu Paquete · 2° Elige tu Temática</h2>
+            <p class="pz-section__lead">Primero selecciona uno de nuestros 3 paquetes oficiales del salón y luego combina la temática favorita de tu peque.</p>
+          </div>
+          <p class="pz-section__count" id="contadorResultados" aria-live="polite">Cargando catálogo…</p>
+        </div>
+
+        <div class="pz-toolbar" role="search">
+          <label class="pz-field pz-field--search">
+            <span class="pz-field__label">Buscar paquete o temática</span>
+            <input class="pz-input" id="buscadorCatalogo" type="search" placeholder="Básico, Mickey, Plim Plim, K-Pop, Unicornio…" autocomplete="off" maxlength="40">
+          </label>
+          <label class="pz-field">
+            <span class="pz-field__label">Sección</span>
+            <select class="pz-input" id="filtroCategoria">
+              <option value="todas">Todo (Paquetes + Temáticas)</option>
+              <option value="paquetes">1. Paquetes del Salón (3)</option>
+              <option value="infantil">2. Clásicos &amp; Disney</option>
+              <option value="series">3. Series &amp; Dibujos</option>
+              <option value="gamer">4. Gamer, K-Pop &amp; Show</option>
+            </select>
+          </label>
+          <label class="pz-field">
+            <span class="pz-field__label">Ordenar por</span>
+            <select class="pz-input" id="ordenCatalogo">
+              <option value="relevancia">Orden recomendado (Salón → Temáticas)</option>
+              <option value="precio-asc">Menor precio referencial</option>
+              <option value="precio-desc">Mayor precio referencial</option>
+              <option value="nombre">Nombre A-Z</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="pz-chips" id="chipsCategoria" role="tablist" aria-label="Filtrar por categoría">
+          <button class="pz-chip pz-chip--active" type="button" role="tab" aria-selected="true" data-categoria="todas">Todo</button>
+          <button class="pz-chip" type="button" role="tab" aria-selected="false" data-categoria="paquetes">🏰 Paquetes Salón</button>
+          <button class="pz-chip" type="button" role="tab" aria-selected="false" data-categoria="infantil">👑 Clásicos &amp; Disney</button>
+          <button class="pz-chip" type="button" role="tab" aria-selected="false" data-categoria="series">🚜 Series &amp; Dibujos</button>
+          <button class="pz-chip" type="button" role="tab" aria-selected="false" data-categoria="gamer">🎮 Gamer, K-Pop &amp; Show</button>
+        </div>
+
+        <div class="pz-grid" id="gridCatalogo" aria-live="polite"></div>
+
+        <div class="pz-empty" id="estadoVacio" hidden>
+          <p class="pz-empty__icon" aria-hidden="true">🎈</p>
+          <h3 class="pz-empty__title">No encontramos esa temática o paquete</h3>
+          <p class="pz-empty__text">Prueba con otra palabra o muestra todo el catálogo.</p>
+          <button class="pz-btn pz-btn--primary" type="button" id="btnLimpiarFiltros">Ver todo el catálogo</button>
+        </div>
+      </section>
+
+      <!-- VISTA 4: DISPONIBILIDAD DE TURNOS -->
+      <section class="pz-section pz-section--alt vista-seccion" id="disponibilidad" data-seccion="disponibilidad" aria-labelledby="tituloDisponibilidad">
+        <div class="pz-section__head">
+          <div>
+            <p class="pz-eyebrow"><span aria-hidden="true">📅</span> Calendario de Turnos</p>
+            <h2 class="pz-section__title" id="tituloDisponibilidad">Consulta Disponibilidad por Turno</h2>
+            <p class="pz-section__lead">Selecciona una fecha para verificar los turnos oficiales: <strong>Mañana (09:00 a 14:00)</strong> o <strong>Tarde (15:00 a 20:00)</strong>.</p>
+          </div>
+        </div>
+
+        <div class="pz-turnos-box">
+          <div class="pz-field">
+            <span class="pz-field__label">1. Elige la fecha de tu celebración</span>
+            <input class="pz-input" id="fechaConsultaTurno" type="date">
+          </div>
+
+          <div class="pz-turnos-cards">
+            <button type="button" class="pz-turno-card is-selected" data-turno="Mañana (09:00 a 14:00)">
+              <span class="pz-turno-card__badge pz-turno-card__badge--ok">Disponible</span>
+              <strong>☀️ Turno Mañana</strong>
+              <span>09:00 a 14:00 hrs (5 horas de evento)</span>
+            </button>
+
+            <button type="button" class="pz-turno-card" data-turno="Tarde (15:00 a 20:00)">
+              <span class="pz-turno-card__badge pz-turno-card__badge--ok">Disponible</span>
+              <strong>🌙 Turno Tarde</strong>
+              <span>15:00 a 20:00 hrs (5 horas de evento)</span>
+            </button>
+          </div>
+
+          <div class="pz-turnos-action">
+            <p id="resumenTurnoSeleccionado">Turno elegido: <strong>Mañana (09:00 a 14:00)</strong></p>
+            <a class="pz-btn pz-btn--primary" href="#cotizador" data-vista-target="cotizador">Continuar con este turno →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- VISTA 5: COTIZADOR -->
+      <section class="pz-section vista-seccion" id="cotizador" data-seccion="cotizador" aria-labelledby="tituloCotizador">
+        <div class="pz-section__head">
+          <div>
+            <p class="pz-eyebrow"><span aria-hidden="true">∑</span> Cotizador &amp; Reserva</p>
+            <h2 class="pz-section__title" id="tituloCotizador">Arma tu paquete y consulta al instante</h2>
+            <p class="pz-section__lead">Combina tu paquete de salón + temática seleccionada y envía tu solicitud directamente a Party Zone.</p>
+          </div>
+        </div>
+
+        <div class="pz-quote">
+          <div class="pz-quote__panel">
+            <h3 class="pz-quote__subtitle">1. Tu selección (Paquete + Temática)</h3>
+            <ul class="pz-quote__list" id="listaCotizacion" aria-live="polite"></ul>
+            <p class="pz-quote__empty" id="cotizadorVacio">Aún no agregaste nada. Empieza eligiendo un Paquete del Salón o una Temática en el catálogo.</p>
+
+            <h3 class="pz-quote__subtitle">2. Tipo de evento y asistentes</h3>
+            <div class="pz-quote__row">
+              <label class="pz-field">
+                <span class="pz-field__label">Tipo de celebración</span>
+                <select class="pz-input" id="tipoEventoSelect">
+                  <option value="Piñata / Cumpleaños Infantil (hasta 40 niños y 80 adultos)">Piñata / Infantil (hasta 40 niños y 80 adultos)</option>
+                  <option value="Baby Shower (80 a 90 adultos)">Baby Shower (80 a 90 adultos)</option>
+                </select>
+              </label>
+              <label class="pz-field">
+                <span class="pz-field__label">Turno preferido</span>
+                <select class="pz-input" id="turnoEventoSelect">
+                  <option value="Mañana (09:00 a 14:00)">Turno Mañana (09:00 a 14:00)</option>
+                  <option value="Tarde (15:00 a 20:00)" selected>Turno Tarde (15:00 a 20:00)</option>
+                </select>
+              </label>
+            </div>
+
+            <div class="pz-quote__row" style="margin-top:0.75rem;">
+              <label class="pz-field">
+                <span class="pz-field__label">Niños estimados: <output id="resumenNinos" for="ninosEvento">30</output> (máx. 40)</span>
+                <input class="pz-range" id="ninosEvento" type="range" min="0" max="40" step="5" value="30">
+              </label>
+              <label class="pz-field">
+                <span class="pz-field__label">Adultos estimados: <output id="resumenAdultos" for="adultosEvento">60</output> (máx. 90)</span>
+                <input class="pz-range" id="adultosEvento" type="range" min="10" max="90" step="5" value="60">
+              </label>
+            </div>
+
+            <h3 class="pz-quote__subtitle">3. Presupuesto referencial</h3>
+            <div class="pz-quote__total">
+              <span class="pz-quote__total-label">Total estimado referencial</span>
+              <strong class="pz-quote__total-value" id="totalCotizacion">Bs 0</strong>
+            </div>
+            <p class="pz-quote__fine">Anticipo referencial (30%): <strong id="anticipoCotizacion">Bs 0</strong> · Sujeto a disponibilidad de turnos en el calendario.</p>
+            <button class="pz-btn pz-btn--primary pz-btn--large pz-btn--block" type="button" id="btnReservar">Agendar visita o reservar fecha</button>
+            <p class="pz-quote__status" id="estadoConexion" aria-live="polite">Conectando con Supabase…</p>
+          </div>
+
+          <aside class="pz-quote__aside">
+            <h3 class="pz-quote__aside-title">Incluye en todos los paquetes</h3>
+            <ul class="pz-check">
+              <li>Cocina equipada y línea blanca</li>
+              <li>Área de juegos en el jardín con césped sintético</li>
+              <li>Parlante con música ambiental y juego de luces</li>
+              <li>2 baños con cambiador de pañal</li>
+              <li>Limpieza completa al finalizar el evento</li>
+            </ul>
+            <div class="pz-guarantee">
+              <p class="pz-guarantee__title">🗓️ Atención para Visitas y Reservas</p>
+              <p class="pz-guarantee__text">Atendemos los <strong>viernes de 4:30 a 7:00 PM</strong> confirmando previamente tu horario. Si necesitas otro día u hora, también lo coordinamos con gusto.</p>
+            </div>
+            <div class="pz-social-aside">
+              <span class="pz-social-aside__label">Contacto y redes directas:</span>
+              <div class="pz-social-icons">
+                <a class="pz-social-btn pz-social-btn--wa" href="https://wa.me/59167301760?text=Hola%20Party%20Zone%2C%20quisiera%20coordinar%20una%20visita%20al%20sal%C3%B3n" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp (+591 67301760)" title="WhatsApp +591 67301760">
+                  <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3s.75-2.13 1.01-2.42c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2.02.9 2.17.07.14.12.31.02.5-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.36 1.46.29.14.46.12.63-.07.17-.19.73-.85.92-1.14.2-.29.39-.24.66-.14.27.1 1.7.8 1.99.95.29.14.49.22.56.34.07.12.07.7-.17 1.38z"/></svg>
+                </a>
+                <a class="pz-social-btn pz-social-btn--tt" href="https://www.tiktok.com/@partyzonelapaz?_r=1&_t=ZS-96i6bEs4UvC" target="_blank" rel="noopener noreferrer" aria-label="TikTok oficial Party Zone" title="TikTok @partyzonelapaz">
+                  <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                </a>
+                <a class="pz-social-btn pz-social-btn--fb" href="https://www.facebook.com/share/192schkX8z/" target="_blank" rel="noopener noreferrer" aria-label="Facebook oficial Party Zone" title="Facebook Party Zone">
+                  <svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+                </a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- VISTA 6: PANEL DE ADMINISTRACIÓN / MIS RESERVAS (CLIENTE) -->
+      <section class="pz-section pz-section--alt vista-seccion" id="panel-cuenta" data-seccion="panel-cuenta" aria-labelledby="tituloPanelCuenta">
+        <div class="pz-section__head">
+          <div>
+            <p class="pz-eyebrow" id="eyebrowPanel"><span aria-hidden="true">🔐</span> Gestión Party Zone</p>
+            <h2 class="pz-section__title" id="tituloPanelCuenta">Acceso Cliente y Administración</h2>
+            <p class="pz-section__lead" id="leadPanelCuenta">Inicia sesión o regístrate para ver el estado de tus pagos y reservas, o ingresa como administrador para confirmar pagos y revisar la bitácora.</p>
+          </div>
+          <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <button class="pz-btn pz-btn--primary pz-btn--small" type="button" id="btnAbrirAuthPanel">Iniciar Sesión / Registro</button>
+            <button class="pz-btn pz-btn--ghost pz-btn--small" type="button" id="btnRefrescarPanel" hidden>↻ Actualizar</button>
+            <button class="pz-btn pz-btn--ghost pz-btn--small" type="button" id="btnCerrarSesion" hidden>Cerrar sesión</button>
+          </div>
+        </div>
+
+        <!-- Estado cuando NO hay sesión iniciada -->
+        <div class="pz-auth-prompt" id="panelSinSesion">
+          <div class="pz-auth-prompt__card">
+            <span style="font-size:2.2rem;">🎉</span>
+            <h3>¿Ya tienes cuenta o deseas registrarte?</h3>
+            <p>Como <strong>Cliente</strong> podrás consultar tus cotizaciones y verificar si tu anticipo o pago ya fue confirmado. Como <strong>Administrador</strong> podrás aprobar fechas, confirmar pagos recibidos y revisar la bitácora completa de ventas.</p>
+            <div style="display:flex;gap:0.75rem;justify-content:center;flex-wrap:wrap;margin-top:0.8rem;">
+              <button class="pz-btn pz-btn--primary" type="button" data-abrir-auth="login">Iniciar Sesión</button>
+              <button class="pz-btn pz-btn--ghost" type="button" data-abrir-auth="registro">Crear Cuenta Cliente</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Estado cuando SÍ hay sesión iniciada -->
+        <div id="panelConSesion" hidden>
+          <!-- Resumen KPIs (solo visible para Admin) -->
+          <div class="pz-admin-kpis" id="adminKpis" hidden>
+            <div class="pz-kpi-card">
+              <span class="pz-kpi-card__label">Total Reservas</span>
+              <strong class="pz-kpi-card__val" id="kpiTotalReservas">0</strong>
+            </div>
+            <div class="pz-kpi-card">
+              <span class="pz-kpi-card__label">Pagos / Anticipos Confirmados</span>
+              <strong class="pz-kpi-card__val pz-kpi-card__val--ok" id="kpiPagosConfirmados">0</strong>
+            </div>
+            <div class="pz-kpi-card">
+              <span class="pz-kpi-card__label">Pagos Pendientes</span>
+              <strong class="pz-kpi-card__val pz-kpi-card__val--warn" id="kpiPagosPendientes">0</strong>
+            </div>
+            <div class="pz-kpi-card">
+              <span class="pz-kpi-card__label">Monto Confirmado (Bs)</span>
+              <strong class="pz-kpi-card__val" id="kpiMontoConfirmado">Bs 0</strong>
+            </div>
+          </div>
+
+          <!-- Filtros rápidos para Admin -->
+          <div class="pz-chips" id="filtrosAdminPagos" hidden style="margin-top:1rem;">
+            <button class="pz-chip pz-chip--active" type="button" data-filtro-pago="todos">Todas</button>
+            <button class="pz-chip" type="button" data-filtro-pago="pendiente">⏳ Pago Pendiente</button>
+            <button class="pz-chip" type="button" data-filtro-pago="anticipo_pagado">💳 Anticipo Confirmado</button>
+            <button class="pz-chip" type="button" data-filtro-pago="pagado_total">✅ Pagado Total</button>
+          </div>
+
+          <div class="pz-reservas-lista" id="listaReservasPanel"></div>
+        </div>
+      </section>
+
+      <!-- VISTA 7: PREGUNTAS FRECUENTES -->
+      <section class="pz-section vista-seccion" id="preguntas" data-seccion="preguntas" aria-labelledby="tituloPreguntas">
+        <div class="pz-section__head">
+          <div>
+            <p class="pz-eyebrow"><span aria-hidden="true">?</span> Información importante</p>
+            <h2 class="pz-section__title" id="tituloPreguntas">Preguntas frecuentes</h2>
+          </div>
+        </div>
+        <div class="pz-faq" id="faqPartyZone">
+          <article class="pz-faq__item">
+            <button class="pz-faq__question" type="button" aria-expanded="false">¿En qué horarios podemos visitar el salón para reservar?<span class="pz-faq__icon" aria-hidden="true">+</span></button>
+            <div class="pz-faq__answer" hidden><p>Atendemos visitas y reservas los <strong>viernes de 4:30 a 7:00 de la noche (16:30 a 19:00)</strong>. Te agradecemos confirmarnos previamente el horario en que deseas visitarnos para esperarte con gusto. Si necesitas otro horario, también podemos coordinarlo previamente.</p></div>
+          </article>
+          <article class="pz-faq__item">
+            <button class="pz-faq__question" type="button" aria-expanded="false">¿Cuáles son los horarios de los eventos y capacidades?<span class="pz-faq__icon" aria-hidden="true">+</span></button>
+            <div class="pz-faq__answer" hidden><p>Tenemos dos turnos: <strong>Mañana de 09:00 a 14:00</strong> y <strong>Tarde de 15:00 a 20:00</strong>. La capacidad para piñatas es de <strong>40 niños y 80 adultos</strong>, y para Baby Shower de <strong>80 a 90 adultos</strong>.</p></div>
+          </article>
+          <article class="pz-faq__item">
+            <button class="pz-faq__question" type="button" aria-expanded="false">¿Qué diferencia hay entre el Paquete Básico, Temático y Súper Temático?<span class="pz-faq__icon" aria-hidden="true">+</span></button>
+            <div class="pz-faq__answer" hidden><p>El <strong>Básico</strong> incluye el salón completo, área de juegos, luces, parlante y mobiliario base prestado. El <strong>Temático</strong> suma toda la decoración de mesa principal (arco de globos, mural, neón, 3 cilindros y nombre 3D). El <strong>Súper Temático</strong> añade decoración de puerta principal, cuadro de bienvenida, globos en el techo y servicio de 2 meseros.</p></div>
+          </article>
+          <article class="pz-faq__item">
+            <button class="pz-faq__question" type="button" aria-expanded="false">¿Dónde está ubicado exactamente Party Zone?<span class="pz-faq__icon" aria-hidden="true">+</span></button>
+            <div class="pz-faq__answer" hidden><p>Estamos en <strong>Av. Busch #1159, Edificio Jimena Natividad, zona Miraflores</strong>, La Paz, Bolivia.</p></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- VISTA 8: UBICACIÓN, REDES Y BITÁCORA -->
+      <section class="pz-section pz-section--alt vista-seccion" id="contacto" data-seccion="contacto" aria-labelledby="tituloContacto">
+        <div class="pz-contact">
+          <div class="pz-contact__copy">
+            <p class="pz-eyebrow"><span aria-hidden="true">📍</span> Dónde Estamos</p>
+            <h2 class="pz-section__title" id="tituloContacto">Visítanos en Miraflores, La Paz</h2>
+            <p class="pz-section__lead">Ven a conocer nuestras instalaciones, el jardín de juegos y los montajes temáticos.</p>
+            <ul class="pz-contact__list">
+              <li><strong>Dirección Exacta</strong><span>Av. Busch #1159, Edificio Jimena Natividad, Miraflores · La Paz</span></li>
+              <li><strong>Visitas y Reservas</strong><span>Viernes de 16:30 a 19:00 (4:30 a 7:00 PM) · Previa confirmación de horario (u otro horario coordinado)</span></li>
+              <li><strong>Teléfono directo</strong><a href="tel:+59167301760">+591 67301760</a></li>
+              <li>
+                <strong>Redes y Contacto Directo</strong>
+                <div class="pz-social-icons" style="margin-top:0.4rem;">
+                  <a class="pz-social-btn pz-social-btn--wa" href="https://wa.me/59167301760?text=Hola%20Party%20Zone%2C%20quisiera%20consultar%20disponibilidad" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Party Zone" title="WhatsApp">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3s.75-2.13 1.01-2.42c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2.02.9 2.17.07.14.12.31.02.5-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.36 1.46.29.14.46.12.63-.07.17-.19.73-.85.92-1.14.2-.29.39-.24.66-.14.27.1 1.7.8 1.99.95.29.14.49.22.56.34.07.12.07.7-.17 1.38z"/></svg>
+                  </a>
+                  <a class="pz-social-btn pz-social-btn--tt" href="https://www.tiktok.com/@partyzonelapaz?_r=1&_t=ZS-96i6bEs4UvC" target="_blank" rel="noopener noreferrer" aria-label="TikTok Party Zone" title="TikTok">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+                  </a>
+                  <a class="pz-social-btn pz-social-btn--fb" href="https://www.facebook.com/share/192schkX8z/" target="_blank" rel="noopener noreferrer" aria-label="Facebook Party Zone" title="Facebook">
+                    <svg viewBox="0 0 24 24" width="21" height="21" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+                  </a>
+                </div>
+              </li>
+            </ul>
+            <a class="pz-btn pz-btn--primary pz-btn--large" href="https://www.google.com/maps/search/?api=1&query=Av.+Busch+1159+Miraflores+La+Paz+Bolivia" target="_blank" rel="noopener noreferrer">Abrir en Google Maps ↗</a>
+          </div>
+
+          <div class="pz-contact__map">
+            <iframe
+              title="Mapa de ubicación Party Zone en Av. Busch 1159, Miraflores, La Paz"
+              src="https://www.openstreetmap.org/export/embed.html?bbox=-68.1265%2C-16.5055%2C-68.1175%2C-16.4985&amp;layer=mapnik&amp;marker=-16.5020%2C-68.1220"
+              style="width:100%;height:320px;border:1px solid var(--border);border-radius:var(--radius-lg);"
+              loading="lazy">
+            </iframe>
+          </div>
+        </div>
+
+        <div class="pz-log" style="margin-top:1.75rem;">
+          <div class="pz-log__head">
+            <h2 class="pz-log__title" id="tituloLog"><span aria-hidden="true">▤</span> Bitácora de actividad</h2>
+            <div class="pz-log__actions">
+              <button class="pz-btn pz-btn--ghost pz-btn--small" type="button" id="btnLog" aria-expanded="false" aria-controls="logOutput">Mostrar</button>
+              <button class="pz-btn pz-btn--ghost pz-btn--small" type="button" id="btnLimpiarLog">Limpiar</button>
+            </div>
+          </div>
+          <div class="pz-log__output" id="logOutput" aria-live="polite" hidden></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <footer class="pz-footer">
+    <div class="pz-footer__inner">
+      <div class="pz-footer__brand">
+        <img src="img/logo.png" data-img-base="img/logo" alt="" width="40" height="40" loading="lazy">
+        <p><strong>Party Zone · Salón de Eventos</strong><br><span>Edificio Jimena Natividad, Av. Busch #1159, Miraflores · La Paz, Bolivia</span></p>
+      </div>
+      <div class="pz-social-icons" aria-label="Redes sociales de Party Zone">
+        <a class="pz-social-btn pz-social-btn--wa" href="https://wa.me/59167301760?text=Hola%20Party%20Zone" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" title="WhatsApp">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm5.82 14.01c-.24.68-1.41 1.3-1.95 1.38-.5.08-1.13.11-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.79-4.17-4.94-4.36-.14-.19-1.18-1.57-1.18-3s.75-2.13 1.01-2.42c.27-.29.58-.36.78-.36.19 0 .39 0 .56.01.18.01.42-.07.66.5.24.58.83 2.02.9 2.17.07.14.12.31.02.5-.1.19-.15.31-.29.48-.15.17-.31.38-.44.51-.15.15-.3.31-.13.6.17.29.76 1.25 1.63 2.03 1.12 1 2.07 1.31 2.36 1.46.29.14.46.12.63-.07.17-.19.73-.85.92-1.14.2-.29.39-.24.66-.14.27.1 1.7.8 1.99.95.29.14.49.22.56.34.07.12.07.7-.17 1.38z"/></svg>
+        </a>
+        <a class="pz-social-btn pz-social-btn--tt" href="https://www.tiktok.com/@partyzonelapaz?_r=1&_t=ZS-96i6bEs4UvC" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok">
+          <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+        </a>
+        <a class="pz-social-btn pz-social-btn--fb" href="https://www.facebook.com/share/192schkX8z/" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"/></svg>
+        </a>
+      </div>
+      <p class="pz-footer__legal">© <span id="anio">2026</span> Party Zone · Todos los derechos reservados.<br><small>Atención de visitas: Viernes de 16:30 a 19:00 · +591 67301760</small></p>
+    </div>
+  </footer>
+
+  <!-- MODAL INICIAR SESIÓN / REGISTRO (CLIENTE Y ADMIN) -->
+  <div class="pz-modal" id="modalAuth" role="dialog" aria-modal="true" aria-labelledby="tituloAuth" hidden>
+    <div class="pz-modal__backdrop" data-cerrar-modal="auth"></div>
+    <div class="pz-modal__box pz-auth-box">
+      <button class="pz-modal__close" type="button" data-cerrar-modal="auth" aria-label="Cerrar">×</button>
+
+      <div class="pz-auth-head">
+        <img src="img/logo.png" data-img-base="img/logo" alt="Party Zone" width="52" height="52">
+        <div>
+          <p class="pz-eyebrow" style="margin:0;">Portal Party Zone</p>
+          <h2 class="pz-modal__title" id="tituloAuth">Bienvenido a Party Zone</h2>
+        </div>
+      </div>
+
+      <div class="pz-auth-tabs" role="tablist">
+        <button class="pz-auth-tab is-active" type="button" id="tabLogin" data-auth-tab="login">Iniciar Sesión</button>
+        <button class="pz-auth-tab" type="button" id="tabRegistro" data-auth-tab="registro">Crear Cuenta</button>
+      </div>
+
+      <!-- Formulario Login -->
+      <form class="pz-form" id="formLogin" novalidate>
+        <label class="pz-field">
+          <span class="pz-field__label">Correo electrónico *</span>
+          <input class="pz-input" id="loginCorreo" type="email" placeholder="tu@correo.com o admin@partyzone.bo" autocomplete="email" required>
+        </label>
+        <label class="pz-field">
+          <span class="pz-field__label">Contraseña *</span>
+          <input class="pz-input" id="loginPassword" type="password" placeholder="••••••••" autocomplete="current-password" required>
+        </label>
+        <p class="pz-error" id="errorAuthLogin" role="alert"></p>
+        <button class="pz-btn pz-btn--primary pz-btn--block pz-btn--large" type="submit">Entrar a mi cuenta</button>
+      </form>
+
+      <!-- Formulario Registro -->
+      <form class="pz-form" id="formRegistro" novalidate hidden>
+        <label class="pz-field">
+          <span class="pz-field__label">Nombre completo *</span>
+          <input class="pz-input" id="regNombre" type="text" maxlength="60" placeholder="Ej: Valeria Quispe" autocomplete="name" required>
+        </label>
+        <label class="pz-field">
+          <span class="pz-field__label">Correo electrónico *</span>
+          <input class="pz-input" id="regCorreo" type="email" placeholder="valeria@correo.com" autocomplete="email" required>
+        </label>
+        <label class="pz-field">
+          <span class="pz-field__label">Celular WhatsApp (Bolivia) *</span>
+          <input class="pz-input" id="regTelefono" type="tel" maxlength="10" placeholder="Ej: 71234567" autocomplete="tel" required>
+        </label>
+        <label class="pz-field">
+          <span class="pz-field__label">Crea una contraseña (mín. 6 caracteres) *</span>
+          <input class="pz-input" id="regPassword" type="password" minlength="6" placeholder="••••••" autocomplete="new-password" required>
+        </label>
+        <p class="pz-error" id="errorAuthReg" role="alert"></p>
+        <button class="pz-btn pz-btn--primary pz-btn--block pz-btn--large" type="submit">Registrarme y entrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Modal Zoom HD -->
+  <div class="pz-modal" id="modalZoom" role="dialog" aria-modal="true" aria-labelledby="tituloZoom" hidden>
+    <div class="pz-modal__backdrop" data-cerrar-modal="zoom"></div>
+    <div class="pz-modal__box pz-modal__box--wide">
+      <button class="pz-modal__close" type="button" data-cerrar-modal="zoom" aria-label="Cerrar">×</button>
+      <div class="pz-zoom">
+        <div class="pz-zoom__media">
+          <img id="imagenZoom" src="img/nuestro ambiente 1.png" alt="" width="800" height="600">
+        </div>
+        <div class="pz-zoom__info">
+          <p class="pz-eyebrow">Vista en detalle</p>
+          <h2 class="pz-modal__title" id="tituloZoom">Paquete o Temática</h2>
+          <p class="pz-zoom__price" id="precioZoom">Consultar</p>
+          <p class="pz-zoom__text" id="textoZoom"></p>
+          <ul class="pz-check" id="detallesZoom"></ul>
+          <button class="pz-btn pz-btn--primary pz-btn--block" type="button" id="btnAgregarZoom" style="margin-top:0.8rem;">Agregar al cotizador</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Reserva / Visita con temporizador 30s -->
+  <div class="pz-modal" id="modalReserva" role="dialog" aria-modal="true" aria-labelledby="tituloReserva" hidden>
+    <div class="pz-modal__backdrop" data-cerrar-modal="reserva"></div>
+    <div class="pz-modal__box">
+      <button class="pz-modal__close" type="button" data-cerrar-modal="reserva" aria-label="Cerrar">×</button>
+      <p class="pz-eyebrow">Confirmación Party Zone</p>
+      <h2 class="pz-modal__title" id="tituloReserva">Agendar Visita o Reserva</h2>
+      <p class="pz-modal__sub">Visitas presenciales: viernes de 4:30 a 7:00 PM (o coordina tu horario ideal).</p>
+
+      <div class="pz-timer" id="temporizadorReserva" aria-live="polite">
+        <span class="pz-timer__label">Tiempo para completar</span>
+        <strong class="pz-timer__value">00:30</strong>
+      </div>
+
+      <div class="pz-resume" id="resumenReserva"></div>
+
+      <form class="pz-form" id="formReserva" novalidate data-validacion="manual">
+        <label class="pz-field">
+          <span class="pz-field__label">Nombre completo *</span>
+          <input class="pz-input" id="reservaNombre" type="text" maxlength="60" placeholder="Ej: Camila Mamani" autocomplete="name">
+        </label>
+        <label class="pz-field">
+          <span class="pz-field__label">WhatsApp (Bolivia) *</span>
+          <input class="pz-input" id="reservaTelefono" type="tel" maxlength="12" placeholder="Ej: 71234567" autocomplete="tel">
+        </label>
+        <label class="pz-field">
+          <span class="pz-field__label">Fecha tentativa del evento *</span>
+          <input class="pz-input" id="reservaFecha" type="date">
+        </label>
+        <label class="pz-field">
+          <span class="pz-field__label">Horario de visita o notas del festejo</span>
+          <textarea class="pz-input pz-textarea" id="reservaNotas" rows="3" maxlength="300" placeholder="Ej: Quisiera visitar el viernes a las 17:30 · Cumpleaños de 4 años..."></textarea>
+        </label>
+        <label class="pz-check-line">
+          <input id="reservaAcepto" type="checkbox">
+          <span>Acepto coordinar la disponibilidad y horario por WhatsApp con Party Zone.</span>
+        </label>
+        <p class="pz-error" id="errorReserva" role="alert"></p>
+        <button class="pz-btn pz-btn--primary pz-btn--block pz-btn--large" type="submit" id="btnConfirmarReserva">Confirmar y abrir WhatsApp</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="pz-toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="shared/dompurify.min.js"></script>
+  <script src="shared/supabase-config.js"></script>
+  <script src="shared/supabase.js"></script>
+  <script src="shared/validacion.js"></script>
+  <script src="data/catalogo.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

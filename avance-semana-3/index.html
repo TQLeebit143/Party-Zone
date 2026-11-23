@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es" data-tema="oscuro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avance Semana 3 · PartyZone</title>
+  <meta name="description" content="Demo de la Semana 3: componentes encapsulados, layout mobile-first, BEM, DOMPurify y Service Worker.">
+  <meta name="theme-color" content="#ff5fa2">
+  <link rel="icon" href="../img/logo-pz.svg" type="image/svg+xml">
+  <link rel="manifest" href="../manifest.json">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="pz-skip" href="#contenido">Saltar al contenido</a>
+
+  <div class="pz-app contenedor-app">
+    <nav class="pz-dock dock-acciones" aria-label="Accesos de la demo">
+      <a class="pz-dock__link" href="../index.html#inicio">
+        <span class="pz-dock__icon" aria-hidden="true">←</span>
+        <span class="pz-dock__label">Volver</span>
+      </a>
+      <a class="pz-dock__link" href="#demo">
+        <span class="pz-dock__icon" aria-hidden="true">◈</span>
+        <span class="pz-dock__label">Demo</span>
+      </a>
+      <a class="pz-dock__link" href="#xss">
+        <span class="pz-dock__icon" aria-hidden="true">🛡</span>
+        <span class="pz-dock__label">XSS</span>
+      </a>
+      <a class="pz-dock__link" href="#log">
+        <span class="pz-dock__icon" aria-hidden="true">▤</span>
+        <span class="pz-dock__label">Bitácora</span>
+      </a>
+    </nav>
+
+    <div class="pz-shell">
+      <header class="pz-header">
+        <div class="pz-header__inner">
+          <a class="pz-brand" href="../index.html" aria-label="Volver a PartyZone">
+            <img class="pz-brand__logo" src="../img/logo-pz.svg" alt="" width="48" height="48">
+            <span class="pz-brand__text">
+              <strong class="pz-brand__name">Semana 3</strong>
+              <small class="pz-brand__tag">PartyZone · Diseño Web II</small>
+            </span>
+          </a>
+          <div class="pz-header__acciones">
+            <button class="pz-btn pz-btn--ghost pz-btn--theme" id="btnTema" type="button" aria-pressed="true">☾ <span>Modo claro</span></button>
+            <button class="pz-btn pz-btn--primary pz-btn--install" id="btnInstalarPWA" type="button" hidden>↓ Instalar app</button>
+          </div>
+        </div>
+      </header>
+
+      <main class="pz-main s3-main" id="contenido" data-hidratado="false">
+        <section class="pz-section" id="demo">
+          <p class="pz-eyebrow"><span aria-hidden="true">◈</span> Avance académico</p>
+          <h1 class="s3-titulo">Semana 3 · Componentes y layout adaptativo</h1>
+          <p class="s3-lead">
+            Esta página concentra las tres consignas de la semana: encapsulamiento de componentes,
+            layout mobile-first con Flexbox y buenas prácticas de seguridad (BEM, DOMPurify y Service Worker).
+          </p>
+
+          <div class="s3-resumen">
+            <article class="s3-paso">
+              <span class="s3-paso__num">01</span>
+              <h2 class="s3-paso__titulo">Componentes</h2>
+              <p class="s3-paso__texto">La tarjeta se construye con <code>document.createElement</code> y <code>textContent</code>, nunca con HTML concatenado.</p>
+            </article>
+            <article class="s3-paso">
+              <span class="s3-paso__num">02</span>
+              <h2 class="s3-paso__titulo">Layout</h2>
+              <p class="s3-paso__texto">En vertical el dock va abajo; en horizontal o desde 768px pasa a barra lateral izquierda.</p>
+            </article>
+            <article class="s3-paso">
+              <span class="s3-paso__num">03</span>
+              <h2 class="s3-paso__titulo">Seguridad</h2>
+              <p class="s3-paso__texto">DOMPurify limpia cualquier texto antes de mostrarlo y el Service Worker guarda el shell offline.</p>
+            </article>
+          </div>
+
+          <h2 class="s3-subtitulo">1. Componente encapsulado + filtro</h2>
+          <div class="pz-toolbar">
+            <label class="pz-field">
+              <span class="pz-field__label">Buscar (keyup)</span>
+              <input class="pz-input" id="s3Busqueda" type="search" placeholder="Escribe “neón” o “torta”" autocomplete="off">
+            </label>
+            <label class="pz-field">
+              <span class="pz-field__label">Categoría</span>
+              <select class="pz-input" id="s3Categoria">
+                <option value="todas">Todas</option>
+                <option value="decoracion">Decoración</option>
+                <option value="catering">Catering</option>
+                <option value="tecnologia">Tecnología</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="pz-chips" id="s3Chips" role="tablist" aria-label="Filtro rápido">
+            <button class="pz-chip pz-chip--active" type="button" role="tab" aria-selected="true" data-categoria="todas">Todo</button>
+            <button class="pz-chip" type="button" role="tab" aria-selected="false" data-categoria="decoracion">Decoración</button>
+            <button class="pz-chip" type="button" role="tab" aria-selected="false" data-categoria="catering">Catering</button>
+            <button class="pz-chip" type="button" role="tab" aria-selected="false" data-categoria="tecnologia">Tecnología</button>
+          </div>
+
+          <div class="pz-grid" id="s3Grid" aria-live="polite"></div>
+
+          <h2 class="s3-subtitulo">2. Calculador y modal con temporizador</h2>
+          <div class="pz-quote">
+            <div class="pz-quote__panel">
+              <label class="pz-field">
+                <span class="pz-field__label">Cantidad de horas: <output id="s3HorasSalida" for="s3Horas">4</output> h</span>
+                <input class="pz-range" id="s3Horas" type="range" min="2" max="8" step="1" value="4">
+              </label>
+              <div class="pz-quote__total">
+                <span class="pz-quote__total-label">Total demo</span>
+                <strong class="pz-quote__total-value" id="s3Total">Bs 0</strong>
+              </div>
+              <button class="pz-btn pz-btn--primary pz-btn--block pz-btn--large" id="s3Reservar" type="button">Abrir modal de confirmación</button>
+            </div>
+            <aside class="pz-quote__aside">
+              <h3 class="pz-quote__aside-title">Qué se está evaluando</h3>
+              <ul class="pz-check">
+                <li>Tarjetas creadas con nodos seguros</li>
+                <li>Filtro y búsqueda en <code>keyup</code></li>
+                <li>Total con <code>.animate()</code></li>
+                <li>Modal con cuenta regresiva de 30 s</li>
+              </ul>
+            </aside>
+          </div>
+
+          <h2 class="s3-subtitulo" id="xss">3. Seguridad XSS con DOMPurify</h2>
+          <div class="s3-xss">
+            <label class="pz-field">
+              <span class="pz-field__label">Escribe un nombre con etiquetas HTML</span>
+              <input class="pz-input" id="s3TextoSucio" type="text" value="&lt;img src=x onerror=alert('XSS')&gt; María">
+            </label>
+            <div class="s3-xss__acciones">
+              <button class="pz-btn pz-btn--primary" id="s3Sanitizar" type="button">Sanitizar con DOMPurify</button>
+              <button class="pz-btn pz-btn--ghost" id="s3Inyectar" type="button">Intentar con innerHTML</button>
+            </div>
+            <p class="s3-xss__nota">El botón rojo demuestra el riesgo; el resultado seguro se pinta con <code>textContent</code>.</p>
+            <div class="s3-xss__salida" id="s3SalidaSegura">Sin resultados todavía.</div>
+          </div>
+        </section>
+
+        <section class="pz-section" id="log">
+          <div class="pz-log">
+            <div class="pz-log__head">
+              <h2 class="pz-log__title"><span aria-hidden="true">▤</span> Bitácora en tiempo real</h2>
+              <button class="pz-btn pz-btn--ghost pz-btn--small" id="s3LimpiarLog" type="button">Limpiar</button>
+            </div>
+            <div class="pz-log__output" id="logOutput" aria-live="polite"></div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="pz-footer">
+        <div class="pz-footer__inner">
+          <p class="pz-footer__legal">© <span id="s3Anio">2026</span> PartyZone · Demo Semana 3 · Diseño Web II · UPDS</p>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+  <div class="pz-modal" id="s3Modal" role="dialog" aria-modal="true" aria-labelledby="s3ModalTitulo" hidden>
+    <div class="pz-modal__backdrop" data-cerrar="1"></div>
+    <div class="pz-modal__box">
+      <button class="pz-modal__close" type="button" data-cerrar="1" aria-label="Cerrar">×</button>
+      <p class="pz-eyebrow">Confirmación</p>
+      <h2 class="pz-modal__title" id="s3ModalTitulo">¿Confirmas tu reserva?</h2>
+      <div class="pz-timer" id="s3Timer">
+        <span class="pz-timer__label">Tiempo para confirmar</span>
+        <strong class="pz-timer__value">00:30</strong>
+      </div>
+      <p class="s3-modal__texto">Si el tiempo llega a cero, el modal se cierra solo, se limpia el intervalo y se avisa al usuario.</p>
+      <button class="pz-btn pz-btn--primary pz-btn--block pz-btn--large" id="s3Confirmar" type="button">Confirmar ahora</button>
+    </div>
+  </div>
+
+  <div class="pz-toast" id="s3Toast" role="status" aria-live="polite" hidden></div>
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../shared/dompurify.min.js"></script>
+  <script src="demo.js"></script>
+</body>
+</html>
